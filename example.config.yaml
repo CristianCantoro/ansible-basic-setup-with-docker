@@ -1,0 +1,44 @@
+---
+## variables
+
+#### role: basic-setup
+langs:
+  - ca_ES.UTF-8
+  - es_ES.UTF-8
+  - en_US.UTF-8
+  - it_IT.UTF-8
+
+basic_packages:
+  - apt-transport-https
+  - ca-certificates
+  - colordiff
+  - git-core
+  - gpgv2
+  - htop
+  - isag
+  - lynx
+  - molly-guard
+  - nmon
+  - python3-pip
+  - software-properties-common
+  - sysstat
+  - systemd-timesyncd
+  - tmux
+  - tree
+  - vnstat
+  - zsh
+
+
+#### role: nickjj.docker
+# Do you want to install Community Edition ('ce') or Enterprise Edition ('ee')?
+docker_edition: "ce"
+
+# Do you want to install Docker through the "stable" or "edge" channel?
+# Stable gets updated every quarter and Edge gets updated every month.
+docker_channel: "stable"
+
+# What version of Docker do you want to install?
+docker_version: "22.10"
+
+# Install docker-compose
+docker_compose_version: ""

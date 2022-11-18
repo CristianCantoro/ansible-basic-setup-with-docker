@@ -1,0 +1,32 @@
+---
+- name: Basic Setup with Docker
+  hosts: servers
+  become: true
+
+  vars:
+      playbook:
+        version: 1.0
+
+  pre_tasks:
+    - name: Load configuration (with defaults from example file).
+      ansible.builtin.include_vars: "{{ item }}"
+      loop:
+        - example.config.yml
+        - config.yml
+
+  tasks:
+    # 1. Basic setup:
+    #    - setup locales
+    #    - set timezone to UTC
+    #    - upgrade system
+    #    - install basic packages
+    - name: Basic setup
+      include_role:
+        name: basic-setup
+    - meta: flush_handlers
+
+    # 2. Install Docker
+    - name: Install docker
+      include_role:
+        name: nickjj.docker
+      tags: ["docker"]

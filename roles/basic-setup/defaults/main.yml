@@ -1,0 +1,14 @@
+---
+# defaults locales
+langs:
+  - en_US.UTF-8
+
+# basic packages to install
+basic_packages:
+  - software-properties-common
+  - apt-transport-https
+  - ca-certificates
+  - colordiff
+  - git-core
+  - gpgv2
+  - htop

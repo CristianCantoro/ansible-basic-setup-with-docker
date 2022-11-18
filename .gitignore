@@ -1,0 +1,6 @@
+# ignore config and inventory files
+/config.yml
+/inventory.ini
+
+# ignore retry playbooks
+*.retry
