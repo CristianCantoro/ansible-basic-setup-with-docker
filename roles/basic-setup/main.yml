@@ -1,4 +1,0 @@
----
-# handlers file for locales
-- name: regenerate locales
-  command: /usr/sbin/locale-gen
