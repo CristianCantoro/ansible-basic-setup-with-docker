@@ -16,6 +16,7 @@ basic_packages:
   - gpgv2
   - htop
   - isag
+  - jq
   - lynx
   - molly-guard
   - nmon
@@ -28,17 +29,31 @@ basic_packages:
   - vnstat
   - zsh
 
-
 #### role: nickjj.docker
-# Do you want to install Community Edition ('ce') or Enterprise Edition ('ee')?
+# Do you want to install Community Edition ('ce') or
+# Enterprise Edition ('ee')?
 docker_edition: "ce"
 
 # Do you want to install Docker through the "stable" or "edge" channel?
 # Stable gets updated every quarter and Edge gets updated every month.
-docker_channel: "stable"
+docker__channel: ["stable"]
 
 # What version of Docker do you want to install?
-docker_version: "22.10"
+docker_version: ""
+
+# Run docker without sudo
+# Try to use the sudo user by default, but fall back to root.
+docker__users: ["{{ ansible_env.SUDO_USER | d('root') }}"]
 
 # Install docker-compose
-docker_compose_version: ""
+docker__compose_v2_version: ""
+
+# Configure the Docker daemon options (json)
+#
+# Move docker's data root
+#   https://www.ibm.com/docs/en/
+#     z-logdata-analytics/5.1.0?topic=compose-relocating-docker-root-directory
+docker__daemon_json: |
+  {
+    "data-root": "/mnt/data/docker"
+  }
