@@ -1,0 +1,13 @@
+---
+- name: Create a new ext4 primary partition
+  community.general.parted:
+    device: /dev/sdb
+    number: 1
+    state: present
+    fs_type: ext4
+
+- name: Create a ext4 filesystem on /dev/sdb1 and check disk blocks
+  community.general.filesystem:
+    fstype: ext4
+    dev: /dev/sdb1
+    opts: -cc
