@@ -53,7 +53,7 @@ docker__compose_v2_version: ""
 # Move docker's data root
 #   https://www.ibm.com/docs/en/
 #     z-logdata-analytics/5.1.0?topic=compose-relocating-docker-root-directory
-docker__daemon_json: |
-  {
-    "data-root": "/mnt/data/docker"
-  }
+# docker__daemon_json: |
+#   {
+#     "data-root": "/mnt/data/docker"
+#   }
